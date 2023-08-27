@@ -16,12 +16,25 @@ export default defineConfig(({ command, mode }) => {
     },
   };
 
+  ///Vercel İçin////
+
+  const detailProxyOptions1 = {
+    "/api": {
+      target: "https://tr-yos-4-azure.vercel.app",
+      port: 5173,
+      changeOrigin: true,
+      // rewrite: (path) => path.replace(/^\/api/, ""),
+    },
+  };
+
+  //////Vercel İçin////////////
+
   // Different configuration for production and development mode
   return {
     plugins: [react()],
     server: {
       proxy: isProduction
-        ? {}
+        ? {...detailProxyOptions1}
         : { ...detailProxyOptions},
     },
   };
