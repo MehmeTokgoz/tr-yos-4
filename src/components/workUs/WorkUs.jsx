@@ -56,7 +56,7 @@ const WorkUs = () => {
                     <div className="relative">
                       <input
                         type="email"
-                        id="email"
+                        id="emailw"
                         name="email"
                         onChange={(e) =>
                           setFormEmail({ ...formEmail, email: e.target.value })
